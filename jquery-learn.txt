@@ -7,7 +7,9 @@ $('.class1').filter('.class2');//lọc ra thẻ co class la class1 và class2
 $('.class1').find('.class2');//tìm ra thẻ co class la class1 và thẻ con có class là class2
 :first đầu tiên
 :last cuối cùng
-:odd
-$('[protaddClass('my-border'); //lây element thông qua thuôc tính
-$('span[prot].addClass('my-border'); //lây element thông qua thẻ có thuoochj yinhs
+:odd lẻ
+:even chẵn
+$('[prot]').addClass('my-border'); //lây element thông qua thuôc tính
+$('span[prot]').addClass('my-border'); //lây element thông qua thẻ có thuoochj yinhs
 $('span[prot="giá trị thuộc tính"]').addClass('my-border'); //lây element thông qua thẻ có thuoochj yinhs
+$('span[prot="giá trị thuộc tính"][style='backgroud:red']').addClass('my-border'); //lây element thông qua thẻ có thuoochj yinhs
