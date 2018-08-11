@@ -1,0 +1,23 @@
+        function SaveCLS() {
+            $('tbody[id="bodyCLS"] tr ').each(function () {
+                var obj = new Object();
+                obj.ID = $(this).find(' td[id="1"]').text();
+                obj.Ten = $(this).find(' td[id="2"]').text();
+                obj.DinhMuc = $(this).find(' td[id="3"]').text();
+                obj.ConLai = $(this).find(' td[id="4"]').text();
+                obj.SoLuong = $(this).find(' td[id="5"]').text();
+                console.log(JSON.stringify(obj));
+            });
+        };
+        function SaveDinhMuc() {
+            $('tbody[id="bodyCLS"] tr ').each(function () {
+                var obj = new Object();
+                obj.ID = $(this).find(' td[id="1"]').text();
+                obj.Ten = $(this).find(' td[id="2"]').text();
+                obj.DinhMuc = $(this).find(' td[id="3"]').text();
+                obj.ConLai = $(this).find(' td[id="4"]').text();
+                obj.SoLuong = $(this).find(' td[id="5"]').text();
+                console.log(JSON.stringify(obj));
+            });
+        };
+//var lst = [$(this).find(' td[id="1"]').text(), $(this).find(' td[id="2"]').text(), $(this).find(' td[id="3"]').text(), $(this).find(' td[id="4"]').text(), $(this).find(' td[id="5"]').text()];
