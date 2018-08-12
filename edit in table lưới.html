@@ -16,14 +16,14 @@
                     $(this).find('input').show();
                 }));
             });
-            $('tbody[id="bodyDinhMuc"] tr td input').each(function () {
+            $('tbody[id="bodyDinhMuc"] tr td input').each(function () {/*hien span an the input*/
                 $(this).focusout(function(){
                     $(this).siblings().show();
                     $(this).siblings().text($(this).val());
                     $(this).hide();
             });
          });
-            $('tbody[id="bodyThuocDVYT"] tr td').each(function () {
+            $('tbody[id="bodyThuocDVYT"] tr td').each(function () {/*hien input an the span*/
                 $(this).on('click',(function(){
                     $(this).find('span').hide();
                     $(this).find('input').show();
@@ -68,6 +68,19 @@
                 alert(index)
             });
         };
+        function AddVTYT() {
+            var thuoc="Panadol 10mg";
+            $('#bodyThuocDVYT')
+            .append('<tr scope="row" data-key="0ndjvsjd23123">')
+            .append('<td id="1"><span class="col1">1</span><input value="2 input" style="display:none;"/>')
+            .append('<td id="2"><span class="col2">'+thuoc+'</span><input  value='+thuoc+' style="display:none;"/></td>')
+            .append('<td id="3" ><span class="col3">1</span><input value="2" input" style="display:none;"/></td>')
+            .append('<td id="4" ><span class="col4">1</span><input value="2 input" style="display:none;"/></td> ')
+            .append('<td id="5" ><span class="col5">1</span><input value="2 input" style="display:none;"/></td>')
+            .append('<td><a href="#" onclick="Xoa("0ndjvsjd23123")">Xóa</a></td>')
+            .append('</tr>');
+        };
+
         function Xoa(id){
             $("tr[data-key='"+id+"']").remove();
         }
@@ -132,6 +145,7 @@
         </form>
         <button id="btnSaveCLS" onclick="SaveCLS()">Lưu</button>
         <button id="btnSaveThuocVTYT" onclick="SaveThuocVTYT()">Lưu</button>
+        <button id="btnSaveThuocVTYT" onclick="AddVTYT()">Lưu</button>
 
     </div>
 </body>
