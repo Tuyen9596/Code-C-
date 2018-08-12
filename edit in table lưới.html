@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="jquery.js"></script>
+    <title></title>
+    <script>
+        $(document).ready(function(){
+            load();
+        });
+        function load(){
+
+            $('tbody[id="bodyDinhMuc"] tr td').each(function () {
+                $(this).on('dblclick',(function(){
+                    $(this).find('span').hide();
+                    $(this).find('input').show();
+                }));
+            });
+            $('tbody[id="bodyDinhMuc"] tr td input').each(function () {
+                $(this).focusout(function(){
+                    $(this).siblings().show();
+                    $(this).siblings().text($(this).val());
+                    $(this).hide();
+            });
+         });
+            $('tbody[id="bodyThuocDVYT"] tr td').each(function () {
+                $(this).on('click',(function(){
+                    $(this).find('span').hide();
+                    $(this).find('input').show();
+                }));
+            });
+            $('tbody[id="bodyThuocDVYT"] tr td input').each(function () {
+                $(this).focusout(function(){
+                    $(this).siblings().show();
+                    $(this).siblings().text($(this).val());
+                    $(this).hide();
+            });
+         });
+
+        };
+
+        function SaveThuocVTYT() {
+            $('tbody[id="bodyThuocDVYT"] tr ').each(function (index, element) {
+                var obj = new Object();
+                obj.ID = $(this).find(' td span[class="col1"]').text() || null;
+                obj.Ten = $(this).find(' td span[class="col2"]').text() || null;
+                obj.DinhMuc = $(this).find(' td span[class="col3"]').text() || null;
+                obj.ConLai = $(this).find(' td span[class="col4"]').text() || null;
+                obj.Loai = 1;
+                obj.SoLuong = $(this).find(' td span[class="col5"]').text() || null;
+                if (obj.DinhMuc)
+                    console.log("Thuốc,VTYT thứ " + index + "" + JSON.stringify(obj));
+                else $(this).css('border',' 1px solid red');
+            });
+        };
+          function SaveCLS() {
+            $('tbody[id="bodyDinhMuc"] tr ').each(function (index,element) {
+                var obj = new Object();
+                obj.ID = $(this).data('key');
+                //obj.ID = $(this).find(' td span[class="col1"]').text()||null;
+                obj.Ten = $(this).find(' td span[class="col2"]').text() || null;
+                obj.DinhMuc = $(this).find(' td span[class="col3"]').text() || null;
+                obj.ConLai = $(this).find(' td span[class="col4"]').text() || null;
+                obj.Loai = 0;
+                obj.SoLuong = $(this).find(' td span[class="col5"]').text() || null;
+                if (obj.DinhMuc)
+                    console.log("Dịch vụ thứ " + index + "" + JSON.stringify(obj));
+                alert(index)
+            });
+        };
+        function Xoa(id){
+            $("tr[data-key='"+id+"']").remove();
+        }
+      </script>
+        
+</head>
+<body>
+    <div>
+        <form>
+            <table class="table">
+                <thead>
+                    <tr scope="row">
+                        <td>ID</td>
+                        <td>Tên dịch vụ</td>
+                        <td>Định mức</td>
+                        <td>Còn lại</td>
+                        <td>Số lượng</td>
+                    </tr>
+                </thead>
+                <tbody id="bodyDinhMuc">
+                   <tr scope="row" data-key="0ndjvsjd23123" >
+                        <td id="1" ><span class="col1">1</span><input value="2 input" style="display:none;"/></td>
+                        <td id="2" ><span class="col2">Khám bệnh</span><input  value="Khám bệnh input" style="display:none;"/></td>
+                        <td id="3" ><span class="col3">1</span><input value="2" input" style="display:none;"/></td>
+                        <td id="4" ><span class="col4">1</span><input value="2 input" style="display:none;"/></td>
+                        <td id="5" ><span class="col5">1</span><input value="2 input" style="display:none;"/></td>
+                        <td><a href="#" onclick="Xoa('0ndjvsjd23123')">Xóa</a></td>
+                  </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr scope="row">
+                        <td>ID</td>
+                        <td>Tên thuốc,DVYT</td>
+                        <td>Định mức</td>
+                        <td>Còn lại</td>
+                        <td>Số lượng</td>
+                    </tr>
+                </thead>
+                <tbody id="bodyThuocDVYT">
+                    <tr scope="row" data-key='ID1'>
+                        <td class="1"><span class="col1">1</span><input value="2 input" style="display:none;"/></td>
+                        <td class="2"><span class="col2">Panadol</span><input value="Panadol" style="display:none;"/></td>
+                        <td class="3"><span class="col3">1</span><input value="2 input" style="display:none;"/></td>
+                        <td class="4"><span class="col4">1</span><input value="2 input" style="display:none;"/></td>
+                        <td class="5"><span class="col5">1</span><input value="2 input" style="display:none;"/></td>
+                        <td><a href="#" onclick="Xoa('ID1')">Xóa</a></td>
+                    </tr>
+                    <tr scope="row" data-key='ID2'>
+                        <td class="1"><span class="col1">1</span><input value="2 input" style="display:none;"/></td>
+                        <td class="2"><span class="col2">Panadol Extra</span><input value="Panadol Extra" style="display:none;"/></td>
+                        <td class="3"><span class="col3">1</span><input value="2 input" style="display:none;"/></td>
+                        <td class="4"><span class="col4">1</span><input value="2 input" style="display:none;"/></td>
+                        <td class="5"><span class="col5">1</span><input value="2 input" style="display:none;"/></td>
+                        <td><a href="#" onclick="Xoa('ID2')">Xóa</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </form>
+        <button id="btnSaveCLS" onclick="SaveCLS()">Lưu</button>
+        <button id="btnSaveThuocVTYT" onclick="SaveThuocVTYT()">Lưu</button>
+
+    </div>
+</body>
+</html>
