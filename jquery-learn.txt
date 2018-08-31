@@ -13,3 +13,20 @@ $('[prot]').addClass('my-border'); //lây element thông qua thuôc tính
 $('span[prot]').addClass('my-border'); //lây element thông qua thẻ có thuoochj yinhs
 $('span[prot="giá trị thuộc tính"]').addClass('my-border'); //lây element thông qua thẻ có thuoochj yinhs
 $('span[prot="giá trị thuộc tính"][style='backgroud:red']').addClass('my-border'); //lây element thông qua thẻ có thuoochj yinhs
+//grey lọc các phân tử của mảng theo điều kiên
+//$.grey(arr,function(Object elementOfArray, Integer indexInArray))
+var arr = [ 1, 9, 3, 8, 6, 1, 5, 9, 4, 7, 3, 8, 6, 9, 1 ];
+$( "div" ).text( arr.join( ", " ) );
+ 
+arr = jQuery.grep(arr, function( n, i ) {
+  return ( n !== 5 && i > 4 );
+});
+$( "p" ).text( arr.join( ", " ) );
+ 
+arr = jQuery.grep(arr, function( a ) {
+  return a !== 9;
+});
+//filter
+$(arr).filter( function(n, i){
+  return (n != 5 && i > 4);
+});
